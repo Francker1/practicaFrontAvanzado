@@ -1,0 +1,7 @@
+/* Carga de utilidades */
+@import "utils/variables.css";
+@import "utils/fonts.css";
+@import "utils/global.css";
+
+/*Secciones*/
+@import "sections/header.css";
