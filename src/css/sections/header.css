@@ -28,7 +28,7 @@ header.header {
 }
 
 .header > .header__title > h1 {
-    font-size: calc( 2rem + var(--size-basic) );
+    font-size: calc( 3rem + var(--size-basic) );
     font-family: var(--font-primary);
 }
 
