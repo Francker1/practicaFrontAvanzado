@@ -20,3 +20,12 @@ nav.nav{
         margin-left: 50%;
     }
 }
+
+.menu-overlay{
+    position: absolute;
+    z-index: 1050;
+    background: black;
+    color: white;
+    height: calc(100vh);
+    width: 100%;
+}
