@@ -17,7 +17,7 @@ nav.nav{
 
 @media (min-width: 1024px){
     .nav > .logo{
-        margin-left: 50%;
+        /*margin-left: 50%;*/
     }
 }
 

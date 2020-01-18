@@ -1,7 +1,6 @@
 header.header {
     position: relative;
-    height: calc(100vh - 70px);
-    /*background-color: var(--color-primary);*/
+    height: calc(80vh);
     background-size: cover;
     display: flex;
     justify-content: center;
@@ -9,7 +8,7 @@ header.header {
 }
 
 .header > .header__overlay{
-    height: calc(100vh - 70px);
+    height: calc(80vh);
 }
 
 .header > .header__img{
@@ -17,7 +16,7 @@ header.header {
 }
 
 .header > .header__img > picture > img{
-    height: calc(100vh - 70px);
+    height: calc(80vh);
     width: 100%;
 }
 
@@ -25,17 +24,24 @@ header.header {
     text-align: center;
     color: var(--color-white);
     z-index: 5;
+    padding: 1.5rem;
 }
 
 .header > .header__title > h1 {
-    font-size: calc( 3rem + var(--size-basic) );
+    font-size: calc( 1.3rem + var(--size-basic) );
     font-family: var(--font-primary);
+    text-align: left;
 }
 
-@media (min-width: 768px){
+.search__form > .form-group > small{
+    text-align: left;
+    color: var(--color-white-dark);
+}
+
+@media (min-width: 1024px){
 
     .header > .header__title > h1 {
-        font-size: calc( 5rem + var(--size-basic) );
+        font-size: calc( 2rem + var(--size-basic) );
     }
 
 }
