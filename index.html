@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>BeerFlix - Tu buscador de cervezas online</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+
+    <div class="container-fluid p-0">
+
+        <!-- Nav menu -->
+        <nav class="nav d-flex justify-content-between">
+            <div class="logo">
+                <a href="/">BeerFlix</a>
+            </div>
+            <div class="burger-menu">
+                menu
+            </div>
+        </nav>
+       <!-- <div class="menu-overlay">
+            <div class="row">
+                <div class="col">
+                    1 of 2
+                </div>
+                <div class="col">
+                    2 of 2
+                </div>
+            </div>
+        </div>-->
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header__img">
+                <picture>
+                    <source srcset="/src/img/header_rwd_beerflix-compressor.jpg 375w,
+                    /src/img/header_beerflix_tab.jpg 768x" media="(max-width:768px)">
+                    <source srcset="/src/img/header_beerflix.jpg 1024w" media="(min-width: 769px)">
+                    <img class="img-fluid" src="/src/img/header_beerflix.jpg" alt="Beer">
+                </picture>
+            </div>
+            <div class="header__title col-xl-7">
+                <h1>BeerFlix, el mejor buscador de cervezas del MUNDO</h1>
+
+                <form class="mt-4 search__form">
+                    <div class="form-group">
+                        <input class="form-control form-control-lg" type="text" placeholder="Busca tu cerveza">
+                        <small class="form-text">Prueba con: Brew, IPA, 2015, lorem</small>
+                    </div>
+                </form>
+            </div>
+        </header>
+
+    </div>
+
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus aliquid aut beatae dignissimos esse eum ex hic impedit in iusto laborum molestias non, nostrum obcaecati odio quam recusandae repudiandae.</p>
+    </div>
+
+    <div class="container-fluid">
+        footer
+    </div>
+
+</body>
+</html>

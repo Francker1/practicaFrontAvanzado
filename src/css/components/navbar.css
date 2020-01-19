@@ -1,0 +1,31 @@
+nav.nav{
+    color: var(--color-white);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    align-items: center;
+    padding: 1.5rem 1rem;
+}
+
+.nav > .logo a{
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+@media (min-width: 1024px){
+    .nav > .logo{
+        /*margin-left: 50%;*/
+    }
+}
+
+.menu-overlay{
+    position: absolute;
+    z-index: 1050;
+    background: black;
+    color: white;
+    height: calc(100vh);
+    width: 100%;
+}

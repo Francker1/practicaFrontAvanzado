@@ -1,0 +1,29 @@
+/*Conjunto de variables para optimizar modificaciones futuras*/
+
+
+/* color */
+:root{
+    --color-bg-dark: #121216;
+    --color-black: #202122;
+    --color-black-light : #42494c;
+    --color-white: #f9f9f9;
+    --color-white-dark : #dae0e7;
+    --color-primary : #dda025;
+    --color-accent : #124741;
+
+    /*Social colors*/
+    --color-fb : #3b5998;
+    --color-ggl : #dd4b39;
+}
+
+
+/* fuentes */
+:root{
+    --size-basic : 1rem;
+}
+
+/* tipografía */
+:root{
+    --font-primary: Fletnix, sans-serif;
+    --font-secondary: Open Sans, sans-serif;
+}
