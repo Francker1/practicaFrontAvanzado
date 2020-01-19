@@ -1,0 +1,42 @@
+footer.footer{
+    padding: 2rem;
+    background-color: var(--color-black);
+    color: var(--color-white-dark);
+}
+
+
+.footer__social >  .footer__logo a{
+    font-family: var(--font-primary);
+    color: var(--color-primary);
+    text-decoration: none;
+    font-size: 2rem;
+}
+
+.footer__social > .footer__rrss{
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.footer__social > .footer__rrss > ul{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    padding: 0;
+}
+
+.footer__social > .footer__rrss > ul > li{
+    list-style: none;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+
+.footer__social > .footer__rrss > ul > li img{
+    height: 36px;
+}
+
+/* Efectos */
+.footer a:hover{
+    color: var(--color-primary);
+    opacity: .7;
+    text-decoration: none;
+}

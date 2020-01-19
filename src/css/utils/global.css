@@ -15,7 +15,9 @@ body {
 
 }
 
-
+a{
+    color: inherit;
+}
 /* Clases globales */
 /* Su nomenclatura es con un solo guión para poder diferenciarlas y saber que son globales creadas ad hoc*/
 
