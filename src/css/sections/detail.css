@@ -1,0 +1,8 @@
+.beer__data dd{
+    margin-left: .7rem;
+}
+
+
+.detail__comments .comments_container > .list-item{
+    /*border-bottom: 1px solid var(--color-black-light);*/
+}
