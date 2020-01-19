@@ -46,21 +46,59 @@
                 </picture>
             </div>
             <div class="header__title col-xl-7">
+
                 <h1>BeerFlix, el mejor buscador de cervezas del MUNDO</h1>
 
-                <form class="mt-4 search__form">
-                    <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" placeholder="Busca tu cerveza">
-                        <small class="form-text">Prueba con: Brew, IPA, 2015, lorem</small>
+                <!--Header form-->
+                <form class="form-inline mt-4">
+                    <div class="input-group col-12 p-0">
+                        <input type="text" class="form-control form-control-lg" placeholder="Buscar cerveza">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="material-icons">search</i></div>
+                        </div>
                     </div>
+                    <small class="form-text">Prueba con: Brew, IPA, 2015, lorem</small>
                 </form>
+
             </div>
         </header>
 
     </div>
 
-    <main class="container">
+    <!--Search bar-->
+    <div class="container-fluid searchbar py-4 d-none">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
 
+                        <form class="form-inline">
+
+                            <div class="input-group col-12 col-md-8 mb-4 mb-md-0 px-2 px-md-0">
+                                <input type="text" class="form-control" placeholder="Buscar cerveza">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="material-icons">search</i></div>
+                                </div>
+                            </div>
+
+                            <div class="input-group col-12 col-md-3 offset-md-1 px-2 px-md-0">
+                                <input type="date" class="form-control" placeholder="Buscar cerveza" id="inline-form-year">
+
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                </div>
+                            </div>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
         <!-- Grid de cervezas -->
         <div class="row my-5">
             <div class="col">

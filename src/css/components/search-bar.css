@@ -1,0 +1,7 @@
+div.searchbar{
+    background-color: var(--color-accent);
+}
+
+.input-group-prepend > div.input-group-text{
+    border-radius: 0 5px 5px 0 !important;
+}

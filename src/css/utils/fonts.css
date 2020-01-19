@@ -16,9 +16,11 @@ h1, h2, h3{
 }
 
 .material-icons {
+    font-family: Material Icons Round;
     font-weight: normal;
     font-style: normal;
     direction: ltr;
+    font-size: calc( .2rem + var(--size-basic));
 
     /* Support for all WebKit browsers. */
     -webkit-font-smoothing: antialiased;
