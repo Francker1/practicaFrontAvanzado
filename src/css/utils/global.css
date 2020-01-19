@@ -37,3 +37,7 @@ a{
 .bg-primary{
     background-color: var(--color-primary) !important;
 }
+
+.font-primary{
+    font-family: var(--font-primary);
+}

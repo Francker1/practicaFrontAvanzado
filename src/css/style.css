@@ -6,6 +6,7 @@
 /*Secciones*/
 @import "sections/header.css";
 @import "sections/footer.css";
+@import "sections/detail.css";
 
 /*Componentes*/
 @import "components/navbar.css";
