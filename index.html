@@ -46,21 +46,27 @@
                 </picture>
             </div>
             <div class="header__title col-xl-7">
+
                 <h1>BeerFlix, el mejor buscador de cervezas del MUNDO</h1>
 
-                <form class="search__form">
-                    <div class="form-group">
-                        <input class="form-control form-control-lg" type="text" placeholder="Busca tu cerveza">
-                        <small class="form-text">Prueba con: Brew, IPA, 2015, lorem</small>
+                <!--Header form-->
+                <form class="form-inline mt-4">
+                    <div class="input-group col-12 p-0">
+                        <input type="text" class="form-control form-control-lg" placeholder="Buscar cerveza">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text"><i class="material-icons">search</i></div>
+                        </div>
                     </div>
+                    <small class="form-text">Prueba con: Brew, IPA, 2015, lorem</small>
                 </form>
+
             </div>
         </header>
 
     </div>
 
     <!--Search bar-->
-    <div class="container-fluid searchbar py-4">
+    <div class="container-fluid searchbar py-4 d-none">
         <div class="row">
             <div class="container">
                 <div class="row">
@@ -93,9 +99,6 @@
     </div>
 
     <main class="container">
-
-
-
         <!-- Grid de cervezas -->
         <div class="row my-5">
             <div class="col">
