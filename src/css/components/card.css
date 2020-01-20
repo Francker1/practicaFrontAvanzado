@@ -9,16 +9,32 @@
     font-size: 2rem;
 }
 
+.card-title > .card__icon-more{
+    display: none;
+}
+
+.card-title > .card__icon-remove{
+    display: block;
+}
+
+.card-closed > .card-title > .card__icon-more{
+    display: block;
+}
+
+.card-closed > .card-title > .card__icon-remove{
+    display: none;
+}
+
 .card-closed .card-container{
     display: none;
 }
 
 @media (min-width: 768px){
-    .card__secondary .card__icon {
-        display: none;
+    .card__icon {
+        display: none !important;
     }
 
-    .card__secondary .card-container{
+    .card .card-container{
         display: block;
     }
 }
