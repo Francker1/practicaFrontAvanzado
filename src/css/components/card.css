@@ -1,0 +1,10 @@
+.card div.card-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.card .card__icon {
+    font-size: 2rem;
+}
