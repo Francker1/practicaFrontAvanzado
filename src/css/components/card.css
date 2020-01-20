@@ -5,6 +5,24 @@
     padding: 1rem;
 }
 
-.card .card__icon {
+.card__secondary .card__icon {
     font-size: 2rem;
+}
+
+.card__icon-remove{
+    display: none;
+}
+
+.card__secondary .card-container{
+    display: none;
+}
+
+@media (min-width: 768px){
+    .card__secondary .card__icon {
+        display: none;
+    }
+
+    .card__secondary .card-container{
+        display: block;
+    }
 }
