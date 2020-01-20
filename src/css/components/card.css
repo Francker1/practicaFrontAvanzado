@@ -5,15 +5,11 @@
     padding: 1rem;
 }
 
-.card__secondary .card__icon {
+.card__icon {
     font-size: 2rem;
 }
 
-.card__icon-remove{
-    display: none;
-}
-
-.card__secondary .card-container{
+.card-closed .card-container{
     display: none;
 }
 
