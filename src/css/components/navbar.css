@@ -15,6 +15,15 @@ nav.nav{
     font-size: 1.5rem;
 }
 
+.burger-menu{
+    display: flex;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1050;
+    align-items: center;
+}
+
 @media (min-width: 1024px){
     .nav > .logo{
         /*margin-left: 50%;*/
