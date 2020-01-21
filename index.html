@@ -30,7 +30,7 @@
         <!-- fixed search bar mobile -->
         <!-- una vez hecha funcionalidad, quitar clase d-none y jugar con visibility class-->
         <div class="search-mobile__container">
-            <div class="search-mobile__input invisible">
+            <div class="search-mobile__input no-search" id="search-mobile-form">
                 <form class="form-inline">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Buscar cerveza">
@@ -40,9 +40,9 @@
                     </div>
                 </form>
             </div>
-            <div class="search-mobile__icon">
-                <i class="material-icons">search</i>
-                <i class="material-icons d-none">close</i>
+            <div class="search-mobile__icon ml-auto">
+                <i class="material-icons search" id="mob-search-icon">search</i>
+                <i class="material-icons no-search" id="mob-close-icon">close</i>
             </div>
         </div>
 
@@ -436,6 +436,7 @@
     </footer>
     <!-- Footer -->
 
+    <script type="module" src="./src/js/searchbar.js"></script>
     <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>
