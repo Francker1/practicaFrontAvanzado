@@ -1,7 +1,45 @@
 /*this JS controls the beers elements grid*/
 
+const templateBeer = beer => {
+  return `<a href="#">
+            <div class="card card__principal">
+                <div class="card-title mb-0">
+                    <h5 class="title mb-0">${beer.name}</h5>
+                    <i class="material-icons card__icon card__icon-more">keyboard_arrow_down</i>
+                    <i class="material-icons card__icon card__icon-remove">keyboard_arrow_up</i>
+                </div>
+                <div class="card-container">
+                    <img class="card-img-top" src="./src/img/no-img-compressor.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">${beer.description}</p>
+
+                        <button class="btn btn-primary">Ver cerveza</button>
+
+                    </div>
+                </div>
+            </div>
+        </a>`;
+};
+
+const renderBeer = (elem, items) => {
+
+    /*por cada item un template en la variable, y eso se recorre*/
+    const htmlBeers = items.map(templateBeer);
+    elem.innerHTML = htmlBeers.join('');
+};
+
 const renderBeers = text => {
-    console.log(text);
+    const beers = [
+        { title: 'beer 1', description : 'lorem beer 1' },
+        { title: 'beer 2', description : 'lorem beer 2' }
+    ];
+
+    const beerGrid = document.getElementById('grid-beers');
+
+    /*render Beer cards in grid:*/
+    renderBeer(beerGrid, beers);
 };
 
 export default renderBeers;
+
+/*todo: Al pintar las tres primeras cards, poner la clase card__principal; y en las demás, card__secondary. De esta forma, crear el efecto de collapse*/
