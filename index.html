@@ -61,11 +61,11 @@
                 <h1><span class="color-primary font-primary font-weight-bold">BeerFlix</span> el mejor buscador de cervezas del MUNDO</h1>
 
                 <!--Header form-->
-                <form class="form-inline mt-4">
+                <form class="form-inline mt-4" id="search-form" novalidate>
                     <div class="input-group col-12 p-0">
-                        <input type="text" class="form-control form-control-lg" placeholder="Buscar cerveza">
+                        <input id="search-input" type="text" class="form-control form-control-lg" placeholder="Buscar cerveza">
                         <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="material-icons">search</i></div>
+                            <button type="submit" class="input-group-text button search">Buscar</button>
                         </div>
                     </div>
                     <small class="form-text">Prueba con: Brew, IPA, 2015, lorem</small>
@@ -112,7 +112,7 @@
     <!--Main content-->
     <main class="container">
         <!-- Grid de cervezas -->
-        <div id="beer-grid">
+        <div id="beers-container">
             <div class="row my-5">
                 <div class="col">
                     <div class="card-columns" id="grid-beers">
