@@ -1,4 +1,8 @@
 import renderBeersHome from './beers.js';
-import './searchbar.js';
+import { INPUT_STORAGE_KEY, STORAGE_TYPE } from './searchbar.js';
+import storage from './storage.js';
 
-renderBeersHome();
+/* get value saved in local storage, default is lStorage */
+const { getItem } = storage();
+
+renderBeersHome( getItem(INPUT_STORAGE_KEY) );

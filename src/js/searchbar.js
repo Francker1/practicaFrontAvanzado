@@ -1,7 +1,15 @@
 import { replace } from './ui.js';
 import  renderBeersHome from './beers.js';
+import storage from './storage.js';
 
-/*this JS has all code for searchbar*/
+export const INPUT_STORAGE_KEY = 'searchbar-input';
+export const STORAGE_TYPE = 'lStorage';
+
+/*this JS allow save input value from searchbar in localstorage*/
+const { setItem, getItem } = storage(STORAGE_TYPE);
+
+
+/*this JS has all code for searchbar:*/
 
 /*get elements from mobile searchbar*/
 const searchBarMobile = document.querySelector("#search-mobile-form");
@@ -42,6 +50,7 @@ searchForm.addEventListener('submit', (evt) => {
         //1. pintar beers con el filtro en el form de búsqueda
         renderBeersHome(searchInput.value);
 
-        //2. almacenar en localstorage o cookie storage
+        //2. save input value in localstorage
+        setItem( INPUT_STORAGE_KEY, searchInput.value );
     }
 });
