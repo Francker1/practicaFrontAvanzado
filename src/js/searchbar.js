@@ -39,7 +39,7 @@ searchForm.addEventListener('submit', (evt) => {
     evt.preventDefault();
 
     if(searchInput.validity.valid){
-        //1. pintar beers con el filtro
+        //1. pintar beers con el filtro en el form de búsqueda
         renderBeersHome(searchInput.value);
 
         //2. almacenar en localstorage o cookie storage

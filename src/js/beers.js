@@ -7,7 +7,7 @@ const { getBeers } = api();
 
 const templateBeer = beer => {
 
-    return `<a href="/detail/${beer.beerId}">
+    return `<a href="/beer/${beer.beerId}">
             <div class="card ${beer.principal ? 'card__principal' : 'card__secondary card-closed'}">
                 <div class="card-title mb-0">
                     <h5 class="title mb-0">${beer.name}</h5>
@@ -27,7 +27,7 @@ const templateBeer = beer => {
         </a>`;
 };
 
-const renderBeer = (elem, items) => {
+export const renderBeer = (elem, items) => {
 
     /*por cada item un template en la variable, y eso se recorre*/
     const htmlBeers = items.map( (beer, index) =>  {
@@ -55,5 +55,3 @@ const renderBeersHome = async text => {
 };
 
 export default renderBeersHome;
-
-/*todo: Al pintar las tres primeras cards, poner la clase card__principal; y en las demás, card__secondary. De esta forma, crear el efecto de collapse*/
