@@ -1,5 +1,5 @@
 import { replace } from './ui.js';
-import  renderBeers from './beers.js';
+import  renderBeersHome from './beers.js';
 
 /*this JS has all code for searchbar*/
 
@@ -40,7 +40,7 @@ searchForm.addEventListener('submit', (evt) => {
 
     if(searchInput.validity.valid){
         //1. pintar beers con el filtro
-        renderBeers(searchInput.value);
+        renderBeersHome(searchInput.value);
 
         //2. almacenar en localstorage o cookie storage
     }

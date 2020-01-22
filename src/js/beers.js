@@ -24,14 +24,14 @@ const templateBeer = beer => {
 const renderBeer = (elem, items) => {
 
     /*por cada item un template en la variable, y eso se recorre*/
-    const htmlBeers = items.map(templateBeer);
-    elem.innerHTML = htmlBeers.join('');
+    const htmlBeers = items.map(templateBeer).join('');
+    elem.innerHTML = htmlBeers;
 };
 
-const renderBeers = text => {
+const renderBeersHome = text => {
     const beers = [
-        { title: 'beer 1', description : 'lorem beer 1' },
-        { title: 'beer 2', description : 'lorem beer 2' }
+        { name: 'beer 1', description : 'lorem beer 1' },
+        { name: 'beer 2', description : 'lorem beer 2' }
     ];
 
     const beerGrid = document.getElementById('grid-beers');
@@ -40,6 +40,6 @@ const renderBeers = text => {
     renderBeer(beerGrid, beers);
 };
 
-export default renderBeers;
+export default renderBeersHome;
 
 /*todo: Al pintar las tres primeras cards, poner la clase card__principal; y en las demás, card__secondary. De esta forma, crear el efecto de collapse*/
