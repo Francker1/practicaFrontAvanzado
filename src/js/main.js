@@ -1,6 +1,6 @@
 
 /*Effect collapse in cards, add or quit */
-const cardTitle = document.querySelectorAll('.card .card-title');
+const cardTitle = document.querySelectorAll('.card-title');
 
 cardTitle.forEach((header, index) => {
 

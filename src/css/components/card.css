@@ -9,6 +9,15 @@
     font-size: 2rem;
 }
 
+.img-card-container{
+    max-height: 350px;
+}
+
+.img-card-container img{
+    height: 350px;
+    object-fit: contain;
+}
+
 .card-title > .card__icon-more{
     display: none;
 }
