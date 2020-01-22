@@ -1,7 +1,13 @@
+import api from './api.js';
+
+/*this variable get beers from api:*/
+const { getBeers } = api();
+
 /*this JS controls the beers elements grid*/
 
 const templateBeer = beer => {
-  return `<a href="#">
+
+    return `<a href="#">
             <div class="card card__principal">
                 <div class="card-title mb-0">
                     <h5 class="title mb-0">${beer.name}</h5>
@@ -9,12 +15,12 @@ const templateBeer = beer => {
                     <i class="material-icons card__icon card__icon-remove">keyboard_arrow_up</i>
                 </div>
                 <div class="card-container">
-                    <img class="card-img-top" src="./src/img/no-img-compressor.jpg" alt="Card image cap">
+                    <div class="img-card-container">
+                        <img class="card-img-top" src="${beer.image}" alt="${beer.name}">
+                    </div>
                     <div class="card-body">
                         <p class="card-text">${beer.description}</p>
-
                         <button class="btn btn-primary">Ver cerveza</button>
-
                     </div>
                 </div>
             </div>
@@ -28,16 +34,18 @@ const renderBeer = (elem, items) => {
     elem.innerHTML = htmlBeers;
 };
 
-const renderBeersHome = text => {
-    const beers = [
-        { name: 'beer 1', description : 'lorem beer 1' },
-        { name: 'beer 2', description : 'lorem beer 2' }
-    ];
+const renderBeersHome = async text => {
 
-    const beerGrid = document.getElementById('grid-beers');
+    try{
+        const beers = await getBeers(text);
+        const beerGrid = document.getElementById('grid-beers');
+        /*render Beer cards in grid:*/
+        renderBeer(beerGrid, beers);
 
-    /*render Beer cards in grid:*/
-    renderBeer(beerGrid, beers);
+    } catch (err){
+        console.log(err);
+    }
+
 };
 
 export default renderBeersHome;
