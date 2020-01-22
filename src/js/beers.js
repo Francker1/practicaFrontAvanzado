@@ -7,8 +7,8 @@ const { getBeers } = api();
 
 const templateBeer = beer => {
 
-    return `<a href="#">
-            <div class="card card__principal">
+    return `<a href="/detail/${beer.beerId}">
+            <div class="card ${beer.principal ? 'card__principal' : 'card__secondary card-closed'}">
                 <div class="card-title mb-0">
                     <h5 class="title mb-0">${beer.name}</h5>
                     <i class="material-icons card__icon card__icon-more">keyboard_arrow_down</i>
@@ -16,7 +16,7 @@ const templateBeer = beer => {
                 </div>
                 <div class="card-container">
                     <div class="img-card-container">
-                        <img class="card-img-top" src="${beer.image}" alt="${beer.name}">
+                        <img class="card-img-top" src="${beer.image ? beer.image : './src/img/no-img-compressor.jpg'}" alt="${beer.name}">
                     </div>
                     <div class="card-body">
                         <p class="card-text">${beer.description}</p>
@@ -30,7 +30,13 @@ const templateBeer = beer => {
 const renderBeer = (elem, items) => {
 
     /*por cada item un template en la variable, y eso se recorre*/
-    const htmlBeers = items.map(templateBeer).join('');
+    const htmlBeers = items.map( (beer, index) =>  {
+        if(index < 3){
+            return templateBeer({ ...beer, principal: true});
+        }
+        return templateBeer({ ...beer, principal: false})
+    }).join('');
+
     elem.innerHTML = htmlBeers;
 };
 
