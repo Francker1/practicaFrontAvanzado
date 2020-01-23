@@ -1,5 +1,5 @@
-import api from './api.js';
-import { limitWords, toggleClass } from './ui.js';
+import api from "./api.js";
+import { limitWords, toggleClass } from "./ui.js";
 
 /*this variable get beers from api:*/
 const { getBeers } = api();
@@ -11,7 +11,7 @@ const templateBeer = beer => {
     const newDescription = limitWords(beer.description, 15);
 
     return `<a href="/beer/${beer.beerId}">
-                <div class="card ${beer.principal ? 'card__principal' : 'card__secondary card-closed'}">
+                <div class="card ${beer.principal ? "card__principal" : "card__secondary card-closed"}">
                     <div class="card-title mb-0">
                         <h5 class="title mb-0">${beer.name}</h5>
                         <i class="material-icons card__icon card__icon-more">keyboard_arrow_down</i>
@@ -19,7 +19,7 @@ const templateBeer = beer => {
                     </div>
                     <div class="card-container">
                         <div class="img-card-container">
-                            <img class="card-img-top" src="${beer.image ? beer.image : './src/img/no-img-compressor.jpg'}" alt="${beer.name}">
+                            <img class="card-img-top" src="${beer.image ? beer.image : "./src/img/no-img-compressor.jpg"}" alt="${beer.name}">
                         </div>
                         <div class="card-body">
                             <p class="card-text">${newDescription}</p>
@@ -39,21 +39,21 @@ export const renderBeer = (elem, items) => {
         if(index < 3){
             return templateBeer({ ...beer, principal: true});
         }
-        return templateBeer({ ...beer, principal: false})
-    }).join('');
+        return templateBeer({ ...beer, principal: false});
+    }).join("");
 
     elem.innerHTML = htmlBeers;
 
     /*esta funcionalidad modifica el comportamiento de las cards*/
-    const cardHeaders = document.querySelectorAll('.card .card-title');
+    const cardHeaders = document.querySelectorAll(".card .card-title");
 
     cardHeaders.forEach( (title, index) => {
 
         const card = title.parentNode;
-        title.addEventListener('click', evt => {
+        title.addEventListener("click", evt => {
 
             evt.preventDefault();
-            toggleClass(card, 'card-closed');
+            toggleClass(card, "card-closed");
         });
     });
 };
@@ -62,7 +62,7 @@ const renderBeersHome = async text => {
 
     try{
         const beers = await getBeers(text);
-        const beerGrid = document.getElementById('grid-beers');
+        const beerGrid = document.getElementById("grid-beers");
         /*render Beer cards in grid:*/
         renderBeer(beerGrid, beers);
 

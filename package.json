@@ -1,0 +1,23 @@
+{
+  "name": "practicafrontavanzado",
+  "version": "1.0.0",
+  "description": "Código para la práctica del módulo de Frontend Avanzado de Bootcamp Keepcoding",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Francker1/practicaFrontAvanzado.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Francker1/practicaFrontAvanzado/issues"
+  },
+  "homepage": "https://github.com/Francker1/practicaFrontAvanzado#readme"
+}
