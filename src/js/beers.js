@@ -1,5 +1,5 @@
 import api from "./api.js";
-import { limitWords, toggleClass } from "./ui.js";
+import { limitWords, toggleClass, replace } from "./ui.js";
 
 /*this variable get beers from api:*/
 const { getBeers } = api();
@@ -63,6 +63,18 @@ const renderBeersHome = async text => {
     try{
         const beers = await getBeers(text);
         const beerGrid = document.getElementById("grid-beers");
+
+        /*this js controls for show or not grid beers container or only beer detail*/
+        const beersGrid = document.querySelector("#beers-container");
+        const handleBeersGrid = replace(beersGrid);
+
+        const beerDetail = document.querySelector("#beer-detail");
+        const handleDetailBeer = replace(beerDetail);
+
+        handleBeersGrid("d-none", "d-block");
+        handleDetailBeer("d-block", "d-none");
+
+
         /*render Beer cards in grid:*/
         renderBeer(beerGrid, beers);
 

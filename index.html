@@ -111,77 +111,17 @@
     <!--Main content-->
     <main class="container">
         <!-- Grid de cervezas -->
-        <div id="beers-container">
+        <div id="beers-container" class="d-block">
             <div class="row my-5">
                 <div class="col">
-
                     <div class="card-columns" id="grid-beers"></div>
-
-                    <div class="card bg-primary text-white text-center p-3">
-                        <blockquote class="blockquote mb-0">
-                            <p>Cerveza: causa y solución de todos los problemas de la vida</p>
-                            <footer class="blockquote-footer">
-                                <small>
-                                    <cite title="Source Title">Homer Simpson</cite>
-                                </small>
-                            </footer>
-                        </blockquote>
-                    </div>
-
                 </div>
             </div>
         </div>
 
-        <div id="beer-detail">
-            <div class="row my-5 detail__container">
-
-                <div class="col-12 mb-5">
-                    <h2>Nombre de la cerveza</h2>
-                </div>
-
-                <div class="col-12 col-md-5">
-                    <img class="img-fluid" src="./src/img/no-img-compressor.jpg" alt="Nombre cerveza">
-
-                    <div class="col-12 p-0 mt-3">
-                        <div class="beer__data">
-                            <dl class="d-flex">
-                                <dt id="beer-year">Año: </dt>
-                                <dd>2014</dd>
-                            </dl>
-                            <dl class="d-flex">
-                                <dt id="beer-ingredients">Ingredientes: </dt>
-                                <dd>malt</dd>
-                                <dd>hops</dd>
-                                <dd>yeast</dd>
-                            </dl>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-6 offset-md-1">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias culpa earum incidunt minus necessitatibus saepe ut voluptas voluptatibus? Aliquam ea facere impedit inventore minima nemo porro praesentium quis ratione suscipit.</p>
-
-                    <dl>
-                        <dt>Tips: </dt>
-                        <dd>lorem ipsum dolor sit amet</dd>
-
-                        <dt>Precio: </dt>
-                        <dd>3.00 €</dd>
-                    </dl>
-
-                    <dl class="d-flex align-items-center">
-                        <dt><i class="material-icons">thumb_up_alt</i></dt>
-                        <dd class="ml-3 mb-0">5</dd>
-                    </dl>
-
-                    <div class="button-grid">
-                        <a class="btn btn-primary" href="#">Comprar</a>
-                        <a class="btn btn-primary" href="#">Añadir a favoritos</a>
-                    </div>
-                </div>
-
-            </div>
-
+        <!--detalle de cervezas-->
+        <div id="beer-detail" class="d-none">
+            <div id="detail-container"></div>
             <div class="row my-5 detail__comments">
                 <div class="col">
                     <h3>Comentarios</h3>
@@ -205,6 +145,7 @@
                 </div>
             </div>
         </div>
+
     </main>
 
     <!-- Footer -->
@@ -240,10 +181,11 @@
 
 
     <!--Carga de scripts:-->
-    <script type="module" src="./src/js/main.js"></script>
-
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+
+    <script type="module" src="./src/js/main.js"></script>
 
 </body>
 </html>

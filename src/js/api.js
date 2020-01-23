@@ -20,7 +20,7 @@ const api = (apiURL = API_BEER_URL_BASE) => {
 
                 /*if code distintc 200 or 300:*/
                 if(resp.config.validateStatus == false){
-                   throw new Error(`Error retrieving beers. Code error: ${resp.status}`);
+                   new Error(`Error retrieving beers. Code error: ${resp.status}`);
                 }
 
                 const dataBeers = await resp.data.beers;
@@ -36,6 +36,31 @@ const api = (apiURL = API_BEER_URL_BASE) => {
                 throw err;
             }
         },
+
+        /*get Beer detail*/
+        getBeerDetail: async id => {
+            try{
+                const config = {
+                    method: 'get',
+                    url: `${apiURL}${id}`,
+                    headers: { 'X-API-KEY': API_KEY }
+                };
+                const resp = await axios(config);
+
+                /*if code distintc 200 or 300:*/
+                if(resp.config.validateStatus == false){
+                    new Error(`Error retrieving beers. Code error: ${resp.status}`);
+                }
+
+                const detailBeer = await resp.data.beer;
+
+                return detailBeer;
+
+            }catch(err){
+                console.log(err.message);
+                throw err;
+            }
+        }
     };
 };
 
