@@ -3,7 +3,7 @@
  */
 
 import api from './api.js';
-import { replace } from './ui.js';
+import { replace, formatDate } from './ui.js';
 
 
 const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brewersTips, price, likes} = {}) => {
@@ -56,10 +56,13 @@ const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brew
     `;
 };
 
-const beerCommentsTemplate = ({quote, date}) => {
+const beerCommentsTemplate = (comment, date) => {
+
+    const dateNewFormat = formatDate(date);
+
     return `<div class="list-item mt-3 pb-3 ">
-                <p>${quote}</p>
-                <p class="text-right"><i class="material-icons mr-3">calendar_today</i>${date}</p>
+                <p>${comment}</p>
+                <p class="text-right"><i class="material-icons mr-3">calendar_today</i>${dateNewFormat}</p>
             </div>`;
 };
 
@@ -84,7 +87,28 @@ const renderForm = () => {
     return formCommentDetail.innerHTML = beerFormCommentDetail;
 };
 
+/*get DATA beer*/
 const { getBeerDetail } = api();
+
+
+/*render comments's template*/
+const renderCommentsBeer = async beerId => {
+
+    const detailBeer =  await getBeerDetail(beerId);
+    const commentsBeer = detailBeer.comments;
+    const containerComments = document.getElementById('quote-list');
+
+    const data = commentsBeer.map((commentsBeer) => {
+
+        const commentText = commentsBeer.comment;
+        const commentDate = commentsBeer.dateComment;
+
+       return beerCommentsTemplate(commentText, commentDate);
+    }).join("");
+
+    containerComments.innerHTML = data;
+
+};
 
 const renderBeerDetail = async id => {
     try {
@@ -103,6 +127,8 @@ const renderBeerDetail = async id => {
         handleBeersGrid("d-block", "d-none");
         handleDetailBeer("d-none", "d-block");
 
+        /*display comments by ID beer*/
+        renderCommentsBeer(id);
         /*display comment's form in detail beer*/
         renderForm();
         /*display detail beer template*/
@@ -115,5 +141,7 @@ const renderBeerDetail = async id => {
         console.log(err);
     }
 };
+
+
 
 export default renderBeerDetail;

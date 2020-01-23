@@ -16,3 +16,9 @@ export const toggleClass = (elem, clase) => {
 
     return elem.classList.toggle(clase);
 };
+
+export const formatDate = date => {
+
+    return date.substr(0, 10);
+
+};

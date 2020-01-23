@@ -53,7 +53,6 @@ const api = (apiURL = API_BEER_URL_BASE) => {
                 }
 
                 const detailBeer = await resp.data.beer;
-
                 return detailBeer;
 
             }catch(err){
