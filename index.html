@@ -122,26 +122,16 @@
         <!--detalle de cervezas-->
         <div id="beer-detail" class="d-none">
             <div id="detail-container"></div>
-            <div class="row my-5 detail__comments">
-                <div class="col">
+            <div id="detail__comments" class="row my-5">
+                <div class="col-12 col-md-6">
                     <h3>Comentarios</h3>
 
-                    <div id="quote-list" class="comments_container">
-                        <div class="list-item mt-3 pb-3">
-                            <p>lorem ipsum dolor</p>
-                            <i class="material-icons">calendar_today</i><span>19/01/2020</span>
-                        </div>
-                    </div>
+                    <!-- comments list -->
+                    <div id="quote-list" class="comments_container"></div>
 
-                    <form action="#" class="mt-5">
+                    <!-- form for write a comment in detail beer -->
+                    <div id="quote-form"></div>
 
-                        <div class="form-group col-12 col-lg-5 p-0">
-                            <label for="exampleFormControlTextarea1">Sé libre de opinar!</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Enviar</button>
-                    </form>
                 </div>
             </div>
         </div>

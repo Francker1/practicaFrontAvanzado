@@ -48,7 +48,7 @@ const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brew
 
                     <div class="button-grid">
                         <a class="btn btn-primary" href="https://www.google.com/search?q=${name}+beer" rel="nofollow noopener" target="_blank">Comprar</a>
-                        <a class="btn btn-primary" href="#">Añadir a favoritos</a>
+                        <a class="btn btn-primary" href="#">Like!</a>
                     </div>
                 </div>
 
@@ -56,6 +56,33 @@ const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brew
     `;
 };
 
+const beerCommentsTemplate = ({quote, date}) => {
+    return `<div class="list-item mt-3 pb-3 ">
+                <p>${quote}</p>
+                <p class="text-right"><i class="material-icons mr-3">calendar_today</i>${date}</p>
+            </div>`;
+};
+
+const beerFormCommentDetail = `
+    <form action="#" class="mt-5">
+
+        <div class="form-group col p-0">
+            <label for="exampleFormControlTextarea1">Sé libre de opinar!</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>`;
+
+
+const renderForm = () => {
+
+    /*render comment's form*/
+    const formCommentDetail = document.querySelector("#quote-form");
+
+    /*display form comments*/
+    return formCommentDetail.innerHTML = beerFormCommentDetail;
+};
 
 const { getBeerDetail } = api();
 
@@ -76,6 +103,8 @@ const renderBeerDetail = async id => {
         handleBeersGrid("d-block", "d-none");
         handleDetailBeer("d-none", "d-block");
 
+        /*display comment's form in detail beer*/
+        renderForm();
         /*display detail beer template*/
         containerDetail.innerHTML = template;
 
