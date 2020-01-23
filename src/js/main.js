@@ -1,14 +1,8 @@
+import renderBeersHome from './beers.js';
+import { INPUT_STORAGE_KEY, STORAGE_TYPE } from './searchbar.js';
+import storage from './storage.js';
 
-/*Effect collapse in cards, add or quit */
-const cardTitle = document.querySelectorAll('.card-title');
+/* get value saved in local storage, default is lStorage */
+const { getItem } = storage(STORAGE_TYPE);
 
-cardTitle.forEach((header, index) => {
-
-    const card = header.parentNode;
-
-    header.addEventListener('click', evt => {
-        evt.preventDefault();
-        card.classList.toggle('card-closed');
-    });
-
-});
+renderBeersHome( getItem(INPUT_STORAGE_KEY) );

@@ -1,15 +1,19 @@
 
 const API_KEY = '0GK7J79-A39488W-JX4G005-14R07MK';
+const API_BEER_URL_BASE = 'https://beerflix-api.herokuapp.com/api/v1/beers/';
 
-const api = () => {
+const api = (apiURL = API_BEER_URL_BASE) => {
+
+    const searchAPIUrlEndpoint = `${apiURL}?search`;
+    const beersAPIUrlEndpoint = `${apiURL}?limit=10`;
 
     return {
         /*get Beers limit 10*/
-        getBeers: async (search) => {
+        getBeers: async search => {
             try {
                 const config = {
                     method: 'get',
-                    url: `https://beerflix-api.herokuapp.com/api/v1/beers/?search=ale&limit=10`,
+                    url: search ? `${searchAPIUrlEndpoint}=${search}&limit=10` : beersAPIUrlEndpoint,
                     headers: { 'X-API-KEY': API_KEY }
                 };
                 const resp = await axios(config);
@@ -20,7 +24,12 @@ const api = () => {
                 }
 
                 const dataBeers = await resp.data.beers;
-                return dataBeers;
+
+                if( dataBeers.length >= 1 ){
+                    return dataBeers;
+                }else{
+                    console.log('no hay cervezas, manejar esto');
+                }
 
             }catch(err) {
                 console.log(err.message);
@@ -29,5 +38,7 @@ const api = () => {
         },
     };
 };
+
+/*todo: manejar error al no devolver ningún número de cervezas, porque la búsqueda esté errónea.*/
 
 export default api;

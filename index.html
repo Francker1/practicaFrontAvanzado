@@ -28,10 +28,9 @@
         </div>
 
         <!-- fixed search bar mobile -->
-        <!-- una vez hecha funcionalidad, quitar clase d-none y jugar con visibility class-->
         <div class="search-mobile__container">
             <div class="search-mobile__input no-search" id="search-mobile-form">
-                <form class="form-inline">
+                <form class="form-inline" novalidate>
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Buscar cerveza">
                         <div class="input-group-prepend">
@@ -239,11 +238,12 @@
     </footer>
     <!-- Footer -->
 
-    <script type="module" src="./src/js/searchbar.js"></script>
-    <script type="module" src="./src/js/main.js"></script>
-    <script type="module" src="./src/js/api.js"></script>
 
-    <!--Axios:-->
+    <!--Carga de scripts:-->
+    <script type="module" src="./src/js/main.js"></script>
+
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+
 </body>
 </html>
