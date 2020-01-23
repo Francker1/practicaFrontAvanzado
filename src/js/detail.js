@@ -113,7 +113,12 @@ const renderCommentsBeer = async beerId => {
 const renderBeerDetail = async id => {
     try {
 
-        const detail = await getBeerDetail(id);
+        const [detail] = await Promise.all([
+            getBeerDetail(id),
+            renderCommentsBeer(id),
+            renderForm()
+        ]);
+
         const template = beerDetailTemplate(detail);
         const containerDetail = document.getElementById('detail-container');
 
@@ -128,9 +133,9 @@ const renderBeerDetail = async id => {
         handleDetailBeer("d-none", "d-block");
 
         /*display comments by ID beer*/
-        renderCommentsBeer(id);
+
         /*display comment's form in detail beer*/
-        renderForm();
+
         /*display detail beer template*/
         containerDetail.innerHTML = template;
 
