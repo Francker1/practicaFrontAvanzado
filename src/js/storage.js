@@ -9,8 +9,8 @@ const lStorage = {
 };
 
 const cookieStorage = {
-    setItem: (key, value) => Cookie.set(key, value),
-    getItem: (key) => Cookie.get(key)
+    setItem: (key, value) => Cookies.set(key, value),
+    getItem: (key) => Cookies.get(key)
 };
 
 /*por defecto esta funcionalidad tiene tipo localStorage*/
