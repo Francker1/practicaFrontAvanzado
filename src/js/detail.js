@@ -3,7 +3,7 @@
  */
 
 import api from './api.js';
-import { replace, formatDate } from './ui.js';
+import { replace, formatDate, renderLoader } from './ui.js';
 
 
 /*get DATA beer*/
@@ -151,10 +151,14 @@ const renderCommentsBeer = async beerId => {
 const renderBeerDetail = async id => {
     try {
 
+        renderLoader("d-none", "d-flex");
+
         const [detail] = await Promise.all([
             getBeerDetail(id),
             renderCommentsBeer(id)
         ]);
+
+        renderLoader("d-flex", "d-none");
 
         const template = beerDetailTemplate(detail);
         const containerDetail = document.getElementById('detail-container');
@@ -172,7 +176,6 @@ const renderBeerDetail = async id => {
 
         /*display comment's form in detail beer*/
         renderForm(id);
-
 
         /*display detail beer template*/
         containerDetail.innerHTML = template;

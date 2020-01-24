@@ -22,3 +22,7 @@ export const formatDate = date => {
     return date.substr(0, 10);
 
 };
+
+const loader = document.querySelector("#loader");
+
+export const renderLoader = replace(loader);

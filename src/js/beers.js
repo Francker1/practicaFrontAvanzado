@@ -1,5 +1,5 @@
 import api from "./api.js";
-import { limitWords, toggleClass, replace } from "./ui.js";
+import { limitWords, toggleClass, replace, renderLoader } from "./ui.js";
 
 /*this variable get beers from api:*/
 const { getBeers } = api();
@@ -71,7 +71,14 @@ export const renderBeer = (elem, items) => {
 const renderBeersHome = async text => {
 
     try{
+
+        renderLoader("d-none", "d-flex");
+
+        /*get data beers by API*/
         const beers = await getBeers(text);
+
+        renderLoader("d-flex", "d-none");
+
         const beerGrid = document.getElementById("grid-beers");
 
         /*this js controls for show or not grid beers container or only beer detail*/
