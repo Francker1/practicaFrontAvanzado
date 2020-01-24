@@ -23,7 +23,17 @@ const templateBeer = beer => {
                         </div>
                         <div class="card-body">
                             <p class="card-text">${newDescription}</p>
-                            <button class="btn btn-primary">Ver cerveza</button>
+                            
+                            <div class="row align-items-center">
+                                <div class="col-6">
+                                    <button class="btn btn-primary">Ver cerveza</button>
+                                </div>
+                                <div class="col-6 text-right">
+                                    <i class="material-icons mr-3">thumb_up_alt</i>
+                                    <span>${beer.likes}</span>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>

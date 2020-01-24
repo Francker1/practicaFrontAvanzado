@@ -7,7 +7,7 @@ import { replace, formatDate } from './ui.js';
 
 
 /*get DATA beer*/
-const { getBeerDetail, createComment } = api();
+const { getBeerDetail, createComment, createLike } = api();
 
 const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brewersTips, price, likes} = {}) => {
 
@@ -46,12 +46,12 @@ const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brew
 
                     <dl class="d-flex align-items-center">
                         <dt><i class="material-icons">thumb_up_alt</i></dt>
-                        <dd class="ml-3 mb-0">${likes}</dd>
+                        <dd id="number-likes" class="ml-3 mb-0">${likes}</dd>
                     </dl>
 
                     <div class="button-grid">
                         <a class="btn btn-primary" href="https://www.google.com/search?q=${name}+beer" rel="nofollow noopener" target="_blank">Comprar</a>
-                        <a class="btn btn-primary" href="#">Like!</a>
+                        <a id="btn-like" class="btn btn-primary" href="#">Like!</a>
                     </div>
                 </div>
 
@@ -77,6 +77,26 @@ const beerFormCommentDetail = `
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>`;
 
+
+const likeBeer = id => {
+
+    const buttonLike = document.querySelector("#btn-like");
+    const numberLikes = document.querySelector("#number-likes");
+
+    buttonLike.addEventListener("click", async (evt) => {
+       evt.preventDefault();
+
+        /*the API return data beer, so i catch the likes*/
+        const respLikes = await createLike(id);
+
+        /*change text with numbers likes, this */
+        numberLikes.textContent = respLikes;
+
+    });
+
+};
+
+/*---- render functions: ----*/
 
 const renderForm = id => {
 
@@ -108,7 +128,6 @@ const renderForm = id => {
 };
 
 
-
 /*render comments's template*/
 const renderCommentsBeer = async beerId => {
 
@@ -127,6 +146,7 @@ const renderCommentsBeer = async beerId => {
     containerComments.innerHTML = data;
 
 };
+
 
 const renderBeerDetail = async id => {
     try {
@@ -153,8 +173,12 @@ const renderBeerDetail = async id => {
         /*display comment's form in detail beer*/
         renderForm(id);
 
+
         /*display detail beer template*/
         containerDetail.innerHTML = template;
+
+        /*likes function:*/
+        likeBeer(id);
 
         /*scroll to top of beer detail container*/
         containerDetail.scrollIntoView();

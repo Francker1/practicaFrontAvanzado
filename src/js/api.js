@@ -90,6 +90,35 @@ const api = (apiURL = API_BEER_URL_BASE) => {
                 console.log(err.message);
                 throw err;
             }
+        },
+
+        /*create like in detail Beer*/
+        createLike: async id => {
+            try{
+                const config = {
+                    method: "post",
+                    url: `${apiURL}${id}/like`,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': API_KEY
+                    }
+                };
+
+                const resp = await axios(config);
+
+                /*if code distintc 200 or 300:*/
+                if(resp.config.validateStatus == false){
+                    new Error(`Error retrieving beers. Code error: ${resp.status}`);
+                }
+
+                const likes = resp.data.beer.likes;
+
+                return likes;
+
+            }catch(err){
+                console.log(err.message);
+                throw err;
+            }
         }
     };
 };
