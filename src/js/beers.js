@@ -68,6 +68,33 @@ export const renderBeer = (elem, items) => {
     });
 };
 
+
+const filterDateBeer = (elem) => {
+
+    const beerHeroes =  elem.filter(function(beer) {
+
+        const str = beer.firstBrewed;
+
+        return beer.firstBrewed = str.includes("2013");
+    });
+
+    console.log(beerHeroes);
+
+};
+
+const getDateBeer = (elem) => {
+
+    const data = elem.map((elem) => {
+
+        return elem.firstBrewed.substr(3,6);
+
+    });
+
+    console.log([...new Set(data)]);
+};
+
+
+
 const renderBeersHome = async text => {
 
     try{
@@ -75,7 +102,9 @@ const renderBeersHome = async text => {
         renderLoader("d-none", "d-flex");
 
         /*get data beers by API*/
-        const beers = await getBeers(text);
+        const [ beers ] = await Promise.all([
+            getBeers(text)
+        ]);
 
         renderLoader("d-flex", "d-none");
 
@@ -94,6 +123,9 @@ const renderBeersHome = async text => {
 
         /*render Beer cards in grid:*/
         renderBeer(beerGrid, beers);
+
+        getDateBeer(beers);
+        filterDateBeer(beers);
 
     } catch (err){
         console.log(err);

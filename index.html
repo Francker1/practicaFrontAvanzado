@@ -76,27 +76,20 @@
     </div>
 
     <!--Search bar-->
-    <div class="container-fluid searchbar py-4 d-none">
+    <div class="container-fluid searchbar py-4 ">
         <div class="row">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
 
-                        <form class="form-inline">
+                        <form class="form-inline" id="form-filter-date">
 
-                            <div class="input-group col-12 col-md-8 mb-4 mb-md-0 px-2 px-md-0">
-                                <input type="text" class="form-control" placeholder="Buscar cerveza">
-
-                                <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="material-icons">search</i></div>
-                                </div>
-                            </div>
-
-                            <div class="input-group col-12 col-md-3 offset-md-1 px-2 px-md-0">
-                                <input type="date" class="form-control" placeholder="Buscar cerveza" id="inline-form-year">
+                            <div class="input-group col-12 col-md-4 px-2 px-md-0">
+                                <label for="form-year" class="mr-3">Filtra por fecha: </label>
+                                <input  id="form-year" type="date" class="form-control">
 
                                 <div class="input-group-prepend">
-                                    <div class="input-group-text"><i class="material-icons">date_range</i></div>
+                                    <button type="submit" class="input-group-text button filter">Filtrar</button>
                                 </div>
                             </div>
 
