@@ -6,6 +6,9 @@ import api from './api.js';
 import { replace, formatDate } from './ui.js';
 
 
+/*get DATA beer*/
+const { getBeerDetail, createComment } = api();
+
 const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brewersTips, price, likes} = {}) => {
 
     return ` <div class="row my-5 detail__container" id="${beerId}">
@@ -52,8 +55,7 @@ const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brew
                     </div>
                 </div>
 
-            </div>
-    `;
+            </div>`;
 };
 
 const beerCommentsTemplate = (comment, date) => {
@@ -67,28 +69,40 @@ const beerCommentsTemplate = (comment, date) => {
 };
 
 const beerFormCommentDetail = `
-    <form action="#" class="mt-5">
-
+    <form id="comment-form" class="mt-5" novalidate>
         <div class="form-group col p-0">
-            <label for="exampleFormControlTextarea1">Sé libre de opinar!</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+            <label for="form-textarea">Sé libre de opinar!</label>
+            <textarea class="form-control" id="form-textarea" rows="6" placeholder="Escribe tu comentario"></textarea>
         </div>
-
         <button type="submit" class="btn btn-primary">Enviar</button>
     </form>`;
 
 
-const renderForm = () => {
+const renderForm = id => {
 
     /*render comment's form*/
     const formCommentDetail = document.querySelector("#quote-form");
 
     /*display form comments*/
-    return formCommentDetail.innerHTML = beerFormCommentDetail;
+    formCommentDetail.innerHTML = beerFormCommentDetail;
+
+    const commentForm = document.querySelector("#comment-form");
+    const commentInput = document.querySelector("#form-textarea");
+
+    commentForm.addEventListener("submit", async (evt) => {
+        evt.preventDefault();
+
+        if(commentInput.validity.valid){
+            console.log(commentInput.value);
+
+            // i create comments
+            await createComment(id, commentInput.value);
+        }
+
+    }, false);
+
 };
 
-/*get DATA beer*/
-const { getBeerDetail } = api();
 
 
 /*render comments's template*/
@@ -115,8 +129,7 @@ const renderBeerDetail = async id => {
 
         const [detail] = await Promise.all([
             getBeerDetail(id),
-            renderCommentsBeer(id),
-            renderForm()
+            renderCommentsBeer(id)
         ]);
 
         const template = beerDetailTemplate(detail);
@@ -132,9 +145,9 @@ const renderBeerDetail = async id => {
         handleBeersGrid("d-block", "d-none");
         handleDetailBeer("d-none", "d-block");
 
-        /*display comments by ID beer*/
 
         /*display comment's form in detail beer*/
+        renderForm(id);
 
         /*display detail beer template*/
         containerDetail.innerHTML = template;

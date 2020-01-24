@@ -59,6 +59,37 @@ const api = (apiURL = API_BEER_URL_BASE) => {
                 console.log(err.message);
                 throw err;
             }
+        },
+
+        /*create comment for Beer*/
+        createComment: async (id, text) => {
+            try{
+
+                const config = {
+                    method: "post",
+                    url: `${apiURL}${id}/comment`,
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-API-KEY': API_KEY
+                    },
+                    data: {
+                        comment : text
+                    }
+                };
+
+                const resp = await axios(config);
+
+                /*if code distintc 200 or 300:*/
+                if(resp.config.validateStatus == false){
+                    new Error(`Error retrieving beers. Code error: ${resp.status}`);
+                }
+
+                return resp;
+
+            }catch(err){
+                console.log(err.message);
+                throw err;
+            }
         }
     };
 };
