@@ -93,11 +93,15 @@ const renderForm = id => {
         evt.preventDefault();
 
         if(commentInput.validity.valid){
-            console.log(commentInput.value);
-
-            // i create comments
+            //1. i create comments
             await createComment(id, commentInput.value);
+
+            //2. render comments
+            renderCommentsBeer(id);
         }
+
+        //3. clean the textarea and this prevent send comment twice
+        commentInput.value = "";
 
     }, false);
 
