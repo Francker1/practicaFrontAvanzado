@@ -3,8 +3,11 @@
  */
 
 import api from './api.js';
-import { replace } from './ui.js';
+import { replace, formatDate } from './ui.js';
 
+
+/*get DATA beer*/
+const { getBeerDetail, createComment } = api();
 
 const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brewersTips, price, likes} = {}) => {
 
@@ -48,21 +51,91 @@ const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brew
 
                     <div class="button-grid">
                         <a class="btn btn-primary" href="https://www.google.com/search?q=${name}+beer" rel="nofollow noopener" target="_blank">Comprar</a>
-                        <a class="btn btn-primary" href="#">Añadir a favoritos</a>
+                        <a class="btn btn-primary" href="#">Like!</a>
                     </div>
                 </div>
 
-            </div>
-    `;
+            </div>`;
+};
+
+const beerCommentsTemplate = (comment, date) => {
+
+    const dateNewFormat = formatDate(date);
+
+    return `<div class="list-item mt-3 pb-3 ">
+                <p>${comment}</p>
+                <p class="text-right"><i class="material-icons mr-3">calendar_today</i>${dateNewFormat}</p>
+            </div>`;
+};
+
+const beerFormCommentDetail = `
+    <form id="comment-form" class="mt-5" novalidate>
+        <div class="form-group col p-0">
+            <label for="form-textarea">Sé libre de opinar!</label>
+            <textarea class="form-control" id="form-textarea" rows="6" placeholder="Escribe tu comentario"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>`;
+
+
+const renderForm = id => {
+
+    /*render comment's form*/
+    const formCommentDetail = document.querySelector("#quote-form");
+
+    /*display form comments*/
+    formCommentDetail.innerHTML = beerFormCommentDetail;
+
+    const commentForm = document.querySelector("#comment-form");
+    const commentInput = document.querySelector("#form-textarea");
+
+    commentForm.addEventListener("submit", async (evt) => {
+        evt.preventDefault();
+
+        if(commentInput.validity.valid){
+            //1. i create comments
+            await createComment(id, commentInput.value);
+
+            //2. render comments
+            renderCommentsBeer(id);
+        }
+
+        //3. clean the textarea and this prevent send comment twice
+        commentInput.value = "";
+
+    }, false);
+
 };
 
 
-const { getBeerDetail } = api();
+
+/*render comments's template*/
+const renderCommentsBeer = async beerId => {
+
+    const detailBeer =  await getBeerDetail(beerId);
+    const commentsBeer = detailBeer.comments;
+    const containerComments = document.getElementById('quote-list');
+
+    const data = commentsBeer.map((commentsBeer) => {
+
+        const commentText = commentsBeer.comment;
+        const commentDate = commentsBeer.dateComment;
+
+       return beerCommentsTemplate(commentText, commentDate);
+    }).join("");
+
+    containerComments.innerHTML = data;
+
+};
 
 const renderBeerDetail = async id => {
     try {
 
-        const detail = await getBeerDetail(id);
+        const [detail] = await Promise.all([
+            getBeerDetail(id),
+            renderCommentsBeer(id)
+        ]);
+
         const template = beerDetailTemplate(detail);
         const containerDetail = document.getElementById('detail-container');
 
@@ -76,6 +149,10 @@ const renderBeerDetail = async id => {
         handleBeersGrid("d-block", "d-none");
         handleDetailBeer("d-none", "d-block");
 
+
+        /*display comment's form in detail beer*/
+        renderForm(id);
+
         /*display detail beer template*/
         containerDetail.innerHTML = template;
 
@@ -86,5 +163,7 @@ const renderBeerDetail = async id => {
         console.log(err);
     }
 };
+
+
 
 export default renderBeerDetail;

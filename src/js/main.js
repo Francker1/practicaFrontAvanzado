@@ -9,14 +9,14 @@ const { getItem } = storage(STORAGE_TYPE);
 
 /*Routes system:*/
 page("/", () => {
-    console.log("home route");
+    //console.log("home route");
     renderBeersHome( getItem(INPUT_STORAGE_KEY) );
 });
 
 page("/beer/:id", (ctx) => {
-    console.log('detalle de cerveza');
+    //console.log('detalle de cerveza');
     const { params: {id} } = ctx;
-    console.log(id);
+    //console.log(id);
 
     renderBeerDetail(id);
 });
