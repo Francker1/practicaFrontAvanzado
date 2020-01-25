@@ -1,5 +1,6 @@
 import api from "./api.js";
 import { limitWords, toggleClass, replace, renderLoader } from "./ui.js";
+import { resetFilter, getDateBeer} from "./filterbar.js";
 
 /*this variable get beers from api:*/
 const { getBeers } = api();
@@ -69,29 +70,7 @@ export const renderBeer = (elem, items) => {
 };
 
 
-const filterDateBeer = (elem) => {
 
-    const beerHeroes =  elem.filter(function(beer) {
-
-        const str = beer.firstBrewed;
-
-        return beer.firstBrewed = str.includes("2013");
-    });
-
-    console.log(beerHeroes);
-
-};
-
-const getDateBeer = (elem) => {
-
-    const data = elem.map((elem) => {
-
-        return elem.firstBrewed.substr(3,6);
-
-    });
-
-    console.log([...new Set(data)]);
-};
 
 
 
@@ -124,13 +103,36 @@ const renderBeersHome = async text => {
         /*render Beer cards in grid:*/
         renderBeer(beerGrid, beers);
 
+
+        const dateForm = document.querySelector("#form-year");
+
+
+        dateForm.addEventListener("change", () => {
+
+            const date = document.querySelector("#form-year").value;
+            const beers2 =  beers.filter( el => {
+                return el.firstBrewed.includes(date);
+            });
+
+
+            renderBeer(beerGrid, beers2);
+
+        });
+
+        resetFilter();
+
+
         getDateBeer(beers);
-        filterDateBeer(beers);
+
 
     } catch (err){
         console.log(err);
     }
 
 };
+
+
+
+
 
 export default renderBeersHome;

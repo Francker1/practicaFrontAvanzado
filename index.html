@@ -86,10 +86,19 @@
 
                             <div class="input-group col-12 col-md-4 px-2 px-md-0">
                                 <label for="form-year" class="mr-3">Filtra por fecha: </label>
-                                <input  id="form-year" type="date" class="form-control">
+                                <input id="form-year" type="range" list="tickmarks" min="2007" max="2015" step="1">
+                                <datalist id="tickmarks">
+                                    <option value="2007">
+                                    <option value="2008">
+                                    <option value="2010">
+                                    <option value="2012">
+                                    <option value="2013">
+                                    <option value="2014">
+                                    <option value="2015">
+                                </datalist>
 
                                 <div class="input-group-prepend">
-                                    <button type="submit" class="input-group-text button filter">Filtrar</button>
+                                    <button id="reset-date" type="submit" class="input-group-text button filter">Filtrar</button>
                                 </div>
                             </div>
 
