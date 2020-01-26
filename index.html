@@ -30,11 +30,11 @@
         <!-- fixed search bar mobile -->
         <div class="search-mobile__container">
             <div class="search-mobile__input no-search" id="search-mobile-form">
-                <form class="form-inline" novalidate>
+                <form id="search-form-mob" class="form-inline" novalidate>
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Buscar cerveza">
+                        <input id="search-input-mob" type="text" class="form-control" placeholder="Buscar cerveza">
                         <div class="input-group-prepend">
-                            <div class="input-group-text"><i class="material-icons">search</i></div>
+                            <button type="submit" class="input-group-text button search">Buscar</button>
                         </div>
                     </div>
                 </form>
@@ -67,7 +67,12 @@
                             <button type="submit" class="input-group-text button search">Buscar</button>
                         </div>
                     </div>
-                    <small class="form-text">Prueba con: Brew, IPA, 2015, lorem</small>
+                    <small class="form-text" id="custom-link-search">Try me!!:
+                        <a href="#" class="link-header" data-text="brew">Brew</a>,
+                        <a href="#" class="link-header" data-text="ipa">IPA</a>,
+                        <a href="#" class="link-header" data-text="pilsen">Pilsen</a>,
+                        <a href="#" class="link-header" data-text="stout">Stout</a>
+                    </small>
                 </form>
 
             </div>

@@ -20,6 +20,9 @@ const closeIconMobile = document.querySelector("#mob-close-icon");
 const searchForm = document.querySelector('#search-form');
 const searchInput = document.querySelector('#search-input');
 
+/*get searchbarMobile form elements*/
+const searchFormMobile = document.querySelector('#search-form-mob');
+const searchInputMobile = document.querySelector('#search-input-mob');
 
 
 /*handler of classes mobile search button and form*/
@@ -49,8 +52,41 @@ searchForm.addEventListener('submit', (evt) => {
     if(searchInput.validity.valid){
         //1. pintar beers con el filtro en el form de búsqueda
         renderBeersHome(searchInput.value);
+        window.location.replace("/");
 
         //2. save input value in localstorage
         setItem( INPUT_STORAGE_KEY, searchInput.value );
     }
+});
+
+/*Form search Beers by Mobile search form:*/
+searchFormMobile.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+
+    if(searchInputMobile.validity.valid){
+        //1. pintar beers con el filtro en el form de búsqueda
+        renderBeersHome(searchInputMobile.value);
+        window.location.replace("/");
+
+        //2. save input value in localstorage
+        setItem( INPUT_STORAGE_KEY, searchInputMobile.value );
+    }
+});
+
+/*esta funcionalidad sirve para agilizar la búsqueda, clickando en los enlaces bajo la barra de búsqueda*/
+const linkHeader = document.querySelectorAll(".link-header");
+
+linkHeader.forEach( (link) => {
+
+    link.addEventListener("click", evt => {
+        evt.preventDefault();
+
+        const searchLink = link.dataset.text;
+
+        renderBeersHome(searchLink);
+        window.location.replace("/");
+
+        setItem( INPUT_STORAGE_KEY, searchLink );
+
+    });
 });
