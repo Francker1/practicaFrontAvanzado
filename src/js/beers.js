@@ -25,16 +25,12 @@ const templateBeer = beer => {
                         <div class="card-body">
                             <p class="card-text">${newDescription}</p>
                             
-                            <div class="row align-items-center">
-                                <div class="col-6">
-                                    <button class="btn btn-primary">Ver cerveza</button>
-                                </div>
-                                <div class="col-6 text-right">
-                                    <i class="material-icons mr-3">thumb_up_alt</i>
-                                    <span>${beer.likes}</span>
-                                </div>
-                            </div>
-                            
+                            <button class="btn btn-primary">Ver cerveza</button>
+                        </div>
+                        
+                         <div class="card-footer">
+                            <i class="material-icons mr-2">comment</i><span class="mr-3">${beer.comments.length}</span>
+                            <i class="material-icons mr-2">thumb_up_alt</i><span>${beer.likes}</span>
                         </div>
                     </div>
                 </div>
