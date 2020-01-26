@@ -50,3 +50,27 @@ menuClose.addEventListener("click", () => {
     handleMenuOpen("hide", "show");
     handleMenuClose("show", "hide");
 });
+
+/*intersection Observer Search mobile, this function hide or shows mobile search*/
+
+const searchMobileContainer = document.querySelector(".search-mobile__container");
+const handleMobileContainer = replace(searchMobileContainer);
+
+const options = {
+    treshold: 1
+};
+
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+      if(entry.isIntersecting){
+          handleMobileContainer("d-flex", "d-none");
+      }else{
+          handleMobileContainer("d-none", "d-flex");
+      }
+  });
+};
+
+const inters = new IntersectionObserver(callback, options);
+const headForm = document.querySelector(".head-page");
+
+inters.observe(headForm);
