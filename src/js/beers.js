@@ -99,6 +99,11 @@ const renderBeersHome = async text => {
         handleBeersGrid("d-none", "d-block");
         handleDetailBeer("d-block", "d-none");
 
+        /*this js shows filter bar in home (beers)*/
+        const dateFilterBar = document.querySelector("#filter-date-bar");
+        const handleFilterBar = replace(dateFilterBar);
+        handleFilterBar("d-none", "d-block");
+
 
         /*render Beer cards in grid:*/
         renderBeer(beerGrid, beers);
