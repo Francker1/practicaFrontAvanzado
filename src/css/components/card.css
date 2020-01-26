@@ -18,6 +18,12 @@
     object-fit: contain;
 }
 
+.card-title > .title{
+    font-family: var(--font-primary);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
 .card-title > .card__icon-more{
     display: none;
 }
