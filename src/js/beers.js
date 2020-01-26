@@ -1,5 +1,6 @@
 import api from "./api.js";
 import { limitWords, toggleClass, replace, renderLoader } from "./ui.js";
+import { resetFilter, getDateBeer} from "./filterbar.js";
 
 /*this variable get beers from api:*/
 const { getBeers } = api();
@@ -68,6 +69,11 @@ export const renderBeer = (elem, items) => {
     });
 };
 
+
+
+
+
+
 const renderBeersHome = async text => {
 
     try{
@@ -75,7 +81,9 @@ const renderBeersHome = async text => {
         renderLoader("d-none", "d-flex");
 
         /*get data beers by API*/
-        const beers = await getBeers(text);
+        const [ beers ] = await Promise.all([
+            getBeers(text)
+        ]);
 
         renderLoader("d-flex", "d-none");
 
@@ -91,9 +99,31 @@ const renderBeersHome = async text => {
         handleBeersGrid("d-none", "d-block");
         handleDetailBeer("d-block", "d-none");
 
+        /*this js shows filter bar in home (beers)*/
+        const dateFilterBar = document.querySelector("#filter-date-bar");
+        const handleFilterBar = replace(dateFilterBar);
+        handleFilterBar("d-none", "d-block");
+
 
         /*render Beer cards in grid:*/
         renderBeer(beerGrid, beers);
+
+
+        /*this functions allow filter beers by date*/
+        const dateForm = document.querySelector("#form-year");
+        dateForm.addEventListener("change", () => {
+
+            const date = document.querySelector("#form-year").value;
+            const beersFiltered =  beers.filter( elem => {
+                return elem.firstBrewed.includes(date);
+            });
+
+            renderBeer(beerGrid, beersFiltered);
+
+        });
+
+        getDateBeer(beers);
+        resetFilter();
 
     } catch (err){
         console.log(err);

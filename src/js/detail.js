@@ -173,6 +173,11 @@ const renderBeerDetail = async id => {
         handleBeersGrid("d-block", "d-none");
         handleDetailBeer("d-none", "d-block");
 
+        /*this js hide filter bar in detail beer*/
+        const dateFilterBar = document.querySelector("#filter-date-bar");
+        const handleFilterBar = replace(dateFilterBar);
+        handleFilterBar("d-block", "d-none");
+
 
         /*display comment's form in detail beer*/
         renderForm(id);
