@@ -1,0 +1,48 @@
+.card-body > button,
+div.button-grid > a.detail__button,
+#comment-form > button[type=submit]{
+    letter-spacing: .1em;
+    display: inline-block;
+    padding: 10px 25px;
+    border-radius: 50em;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: var(--font-primary);
+    font-size: 14px;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+
+div.button-grid > a.like-btn{
+    padding: 10px 40px;
+    border: 2px solid var(--color-white);
+    margin-right: .5rem;
+
+}
+
+div.button-grid > a.no-bg-btn{
+    background-color: unset;
+    color: var(--color-accent);
+    border: 1px solid var(--color-accent);
+
+}
+
+/*Hover effects*/
+.card-body > button,
+.card-body > button:hover,
+#comment-form > button[type=submit]{
+    border: none;
+}
+
+a.detail__button:hover{
+    color: var(--color-white);
+}
+
+#comment-form > button[type=submit]:hover,
+.card-body > button:hover,
+div.button-grid > a.like-btn:hover{
+    background-color: var(--color-primary);
+}

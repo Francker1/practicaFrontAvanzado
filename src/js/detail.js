@@ -50,8 +50,9 @@ const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brew
                     </dl>
 
                     <div class="button-grid">
-                        <a class="btn btn-primary" href="https://www.google.com/search?q=${name}+beer" rel="nofollow noopener" target="_blank">Comprar</a>
-                        <a id="btn-like" class="btn btn-primary" href="#">Like!</a>
+                        <a id="btn-like" class="detail__button like-btn" href="#">¡Me gusta!</a>
+                        <a class="detail__button no-bg-btn" href="https://www.google.com/search?q=${name}+beer" rel="nofollow noopener" target="_blank">Comprar</a>
+                        
                     </div>
                 </div>
 

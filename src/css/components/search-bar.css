@@ -1,9 +1,11 @@
-div.searchbar{
-   /* background-color: var(--color-accent);*/
+.button{
+    border-radius: 0 5px 5px 0 !important;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
-.input-group-prepend > div.input-group-text{
-    border-radius: 0 5px 5px 0 !important;
+select.custom-select{
+    border-radius: 5px 0 0 5px !important;
 }
 
 .search-mobile__container{
@@ -26,7 +28,7 @@ div.searchbar{
     border-bottom-left-radius: 25px;
 }
 
-.search-mobile__input .input-group-prepend > .input-group-text{
+.search-mobile__input .input-group-prepend > button{
     border-top-right-radius: 25px !important;
     border-bottom-right-radius: 25px !important;
 }

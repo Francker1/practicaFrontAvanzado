@@ -1,4 +1,10 @@
-.card div.card-title{
+.card{
+    transition: box-shadow 0.2s;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.086) , 0 1px 8px 0 rgba(0, 0, 0, 0.1);
+    border: unset;
+}
+
+.card > div.card-title{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,6 +38,8 @@
     display: block;
 }
 
+
+
 .card-closed > .card-title > .card__icon-more{
     display: block;
 }
@@ -43,6 +51,16 @@
 .card-closed .card-container{
     display: none;
 }
+
+/*Hover effects*/
+#grid-beers > a:hover{
+    color: inherit;
+}
+
+.card:hover{
+    box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.086) , 0 8px 24px 0 rgba(0, 0, 0, 0.1);
+}
+
 
 @media (min-width: 768px){
     .card__icon {
