@@ -80,8 +80,15 @@
 
     </div>
 
+    <!-- error message if no results -->
+    <div class="error-search d-none">
+        <div class="alert alert-warning" role="alert">
+            <strong>Ooops!! Búsqueda sin resultados...</strong> Puedes probar con otra palabra en el buscador o clickar en nuestras sugerencias.
+        </div>
+    </div>
+
     <!--Filter bar-->
-        <div class="container searchbar mt-3 d-block" id="filter-date-bar">
+    <div class="container searchbar mt-3 d-block" id="filter-date-bar">
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="input-group px-2 px-md-0">
@@ -100,6 +107,7 @@
 
     <!--Main content-->
     <main class="container">
+
         <!-- Grid de cervezas -->
         <div id="beers-container" class="d-block">
             <div class="row my-5">

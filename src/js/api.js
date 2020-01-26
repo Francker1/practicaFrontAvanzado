@@ -25,10 +25,11 @@ const api = (apiURL = API_BEER_URL_BASE) => {
 
                 const dataBeers = await resp.data.beers;
 
+                /*handle errors if no results*/
                 if( dataBeers.length >= 1 ){
                     return dataBeers;
                 }else{
-                    console.log('no hay cervezas, manejar esto');
+                    return false;
                 }
 
             }catch(err) {
@@ -122,7 +123,5 @@ const api = (apiURL = API_BEER_URL_BASE) => {
         }
     };
 };
-
-/*todo: manejar error al no devolver ningún número de cervezas, porque la búsqueda esté errónea.*/
 
 export default api;

@@ -100,9 +100,17 @@ const renderBeersHome = async text => {
         const handleFilterBar = replace(dateFilterBar);
         handleFilterBar("d-none", "d-block");
 
+        /*this js show error message if not results*/
+        const warningSearch = document.querySelector(".error-search");
+        const handleWarningSearch = replace(warningSearch);
 
-        /*render Beer cards in grid:*/
-        renderBeer(beerGrid, beers);
+        if(beers == false){
+            handleWarningSearch("d-none", "d-block");
+        }else{
+            /*render Beer cards in grid:*/
+            renderBeer(beerGrid, beers);
+        }
+
 
 
         /*this functions allow filter beers by date*/
