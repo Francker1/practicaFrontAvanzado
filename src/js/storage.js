@@ -1,8 +1,3 @@
-
-/**
- * Created by Italo on 22/01/2020.
- */
-
 const lStorage = {
     setItem: (key, value) => localStorage.setItem(key, value),
     getItem: (key) => localStorage.getItem(key),

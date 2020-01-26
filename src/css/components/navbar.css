@@ -2,7 +2,6 @@ nav.nav{
     color: var(--color-white);
     position: fixed;
     top: 0;
-    width: 100%;
     z-index: 999;
     align-items: center;
     padding: 1.5rem 1rem;
@@ -15,6 +14,10 @@ nav.nav{
     font-size: 1.5rem;
 }
 
+.nav > .logo a > img{
+    height: 2em;
+}
+
 .burger-menu{
     display: flex;
     position: fixed;
@@ -25,9 +28,10 @@ nav.nav{
 }
 
 @media (min-width: 1024px){
-    .nav > .logo{
-        /*margin-left: 50%;*/
+    .nav > .logo a > img{
+        height: 3em;
     }
+
 }
 
 .menu-overlay{
