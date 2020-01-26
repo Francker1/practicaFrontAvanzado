@@ -4,7 +4,7 @@ nav.nav{
     top: 0;
     z-index: 999;
     align-items: center;
-    padding: 1.5rem 1rem;
+    padding: 1rem;
 }
 
 .nav > .logo a{
@@ -18,27 +18,10 @@ nav.nav{
     height: 2em;
 }
 
-.burger-menu{
-    display: flex;
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 1050;
-    align-items: center;
-}
 
 @media (min-width: 1024px){
     .nav > .logo a > img{
         height: 3em;
     }
 
-}
-
-.menu-overlay{
-    position: absolute;
-    z-index: 1050;
-    background: black;
-    color: white;
-    height: calc(100vh);
-    width: 100%;
 }

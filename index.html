@@ -15,16 +15,27 @@
 
     <div class="container-fluid p-0">
 
-        <!-- Nav menu -->
         <nav class="nav d-flex justify-content-between">
             <div class="logo">
                 <a href="/"><img src="./src/img/logos/beer.svg" alt="BeerFlix"></a>
             </div>
-
         </nav>
 
+        <!-- Nav menu -->
         <div class="burger-menu">
-            menu
+            <i class="material-icons show" id="open-menu-icon">menu</i>
+            <i class="material-icons hide" id="close-menu-icon">close</i>
+        </div>
+        <div id="menu-container" class="menu-overlay d-none">
+            <div class="nav__content">
+                <ul class="nav__list">
+                    <li class="nav__list-item"><a href="#" class="link-header" data-text="stout">Stout</a></li>
+                    <li class="nav__list-item"><a href="#" class="link-header" data-text="brew">Brew</a></li>
+                    <li class="nav__list-item"><a href="#" class="link-header" data-text="ipa">IPA</a></li>
+                    <li class="nav__list-item"><a href="#" class="link-header" data-text="pilsen">Pilsen</a></li>
+                    <li class="nav__list-item"><a href="#" class="link-header" data-text="ale">ALE</a></li>
+                </ul>
+            </div>
         </div>
 
         <!-- fixed search bar mobile -->

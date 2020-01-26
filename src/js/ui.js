@@ -26,3 +26,27 @@ export const formatDate = date => {
 const loader = document.querySelector("#loader");
 
 export const renderLoader = replace(loader);
+
+/*menu UI*/
+const menuOpen = document.querySelector("#open-menu-icon");
+const menuClose = document.querySelector("#close-menu-icon");
+const menuOverlay = document.querySelector("#menu-container");
+
+
+const handleMenuOpen = replace(menuOpen);
+const handleMenuClose = replace(menuClose);
+const handleMenuOverlay = replace(menuOverlay);
+
+menuOpen.addEventListener("click", () => {
+
+    handleMenuOverlay("d-none", "d-flex");
+    handleMenuOpen("show", "hide");
+    handleMenuClose("hide", "show");
+
+});
+
+menuClose.addEventListener("click", () => {
+    handleMenuOverlay("d-flex", "d-none");
+    handleMenuOpen("hide", "show");
+    handleMenuClose("show", "hide");
+});
