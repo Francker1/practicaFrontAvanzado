@@ -9,7 +9,20 @@ import { replace, formatDate, renderLoader } from './ui.js';
 /*get DATA beer*/
 const { getBeerDetail, createComment, createLike } = api();
 
-const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brewersTips, price, likes} = {}) => {
+const nameIngredients = (array) => {
+
+    const allHops = array.map( (i) => {
+        return i.name;
+    }).join(", ");
+
+    return allHops;
+
+};
+
+const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brewersTips, price, likes, ingredients } = {}) => {
+
+    const hopsBeer = ingredients.hops;
+    const maltBeer = ingredients.malt;
 
     return ` <div class="row my-5 detail__container" id="${beerId}">
                 <div class="col-12 mb-5">
@@ -22,14 +35,23 @@ const beerDetailTemplate = ({beerId, name, image, firstBrewed, description, brew
                     <div class="col-12 p-0 mt-3">
                         <div class="beer__data">
                             <dl class="d-flex">
-                                <dt id="beer-year">Año: </dt>
+                                <dt id="beer-year">Primer preparado: </dt>
                                 <dd>${firstBrewed}</dd>
                             </dl>
-                            <dl class="d-flex">
-                                <dt id="beer-ingredients">Ingredientes: </dt>
-                                <dd>malt</dd>
-                                <dd>hops</dd>
-                                <dd>yeast</dd>
+                            <dl>
+                                <dt class="mb-2">Ingredientes: </dt>
+                                  <div>
+                                    <dt>Malts</dt>
+                                    <dd>${nameIngredients(maltBeer)}</dd>
+                                  </div>
+                                  <div>
+                                    <dt>Hops</dt>
+                                    <dd>${nameIngredients(hopsBeer)}</dd>
+                                  </div>
+                                  <div>
+                                    <dt>Yeast</dt>
+                                    <dd>${ingredients.yeast}</dd>
+                                  </div>
                             </dl>
                         </div>
                     </div>
