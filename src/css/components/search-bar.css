@@ -8,6 +8,13 @@ select.custom-select{
     border-radius: 5px 0 0 5px !important;
 }
 
+#search-form button[type="submit"]{
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+/*mobile search form*/
 .search-mobile__container{
     display: flex;
     position: fixed;
@@ -52,6 +59,15 @@ select.custom-select{
 
 .search{
     display: block;
+}
+
+/*hHover effects*/
+.button:hover{
+    cursor: pointer;
+}
+
+.link-header:hover{
+    color: var(--color-primary);
 }
 
 @media (min-width: 576px) {
