@@ -11,7 +11,7 @@ const templateBeer = beer => {
 
     const newDescription = limitWords(beer.description, 15);
 
-    return `<a href="/beer/${beer.beerId}">
+    return `<a class="col-12 col-md-6 col-lg-4 mb-4" href="/beer/${beer.beerId}">
                 <div class="card ${beer.principal ? "card__principal" : "card__secondary card-closed"}">
                     <div class="card-title mb-0">
                         <h5 class="title mb-0">${beer.name}</h5>
