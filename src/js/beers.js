@@ -104,35 +104,26 @@ const renderBeersHome = async text => {
         renderBeer(beerGrid, beers);
 
 
+        /*this functions allow filter beers by date*/
         const dateForm = document.querySelector("#form-year");
-
-
         dateForm.addEventListener("change", () => {
 
             const date = document.querySelector("#form-year").value;
-            const beers2 =  beers.filter( el => {
-                return el.firstBrewed.includes(date);
+            const beersFiltered =  beers.filter( elem => {
+                return elem.firstBrewed.includes(date);
             });
 
-
-            renderBeer(beerGrid, beers2);
+            renderBeer(beerGrid, beersFiltered);
 
         });
 
-        resetFilter();
-
-
         getDateBeer(beers);
-
+        resetFilter();
 
     } catch (err){
         console.log(err);
     }
 
 };
-
-
-
-
 
 export default renderBeersHome;
