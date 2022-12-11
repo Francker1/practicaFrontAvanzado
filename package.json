@@ -4,7 +4,7 @@
   "description": "Código para la práctica del módulo de Frontend Avanzado de Bootcamp Keepcoding",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   },
   "devDependencies": {
     "eslint": "^6.8.0"
